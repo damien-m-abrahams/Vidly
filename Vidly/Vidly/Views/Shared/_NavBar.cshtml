@@ -1,0 +1,24 @@
+﻿@model Vidly.ViewModels.IViewModel
+    
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink(@Model.Navigation.HomeLink.Display, @Model.Navigation.HomeLink.ActionName, @Model.Navigation.HomeLink.ControllerName, new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            @if (Model != null) {
+                <ul class="nav navbar-nav">
+                    @foreach (var link in Model.Navigation.ApplicationLinks) {
+                        <li>@Html.ActionLink(link.Display, link.ActionName, link.ControllerName)</li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+

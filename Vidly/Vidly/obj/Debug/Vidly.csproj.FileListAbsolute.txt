@@ -65,3 +65,13 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.AI.Wind
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.AI.Web.xml
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.dll
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.pdb
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Unity.Mvc5.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.ServiceLocation.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml

@@ -1,30 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
 	public class HomeController : Controller
 	{
+		private INavigationViewModel navigationViewModel;
+
+		private readonly IHomeViewModel homeViewModel;
+
+		public HomeController(INavigationViewModel navigationViewModel)
+		{
+			if (navigationViewModel == null) throw new ArgumentNullException(nameof(navigationViewModel));
+
+			this.navigationViewModel = navigationViewModel;
+
+			homeViewModel = new HomeViewModel {
+				Navigation = this.navigationViewModel
+			};
+		}
+
 		public ActionResult Index()
 		{
-			return View();
-		}
-
-		public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
-		}
-
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
+			return View(homeViewModel);
 		}
 	}
 }
