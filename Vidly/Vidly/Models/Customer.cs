@@ -7,5 +7,9 @@
 		public string Name { get; set; }
 
 		public bool IsSubscribedToNewsletteer { get; set; }
+
+		public MembershipType MembershipType { get; set; } // Navigation property
+
+		public byte MembershipTypeId { get; set; }
 	}
 }
