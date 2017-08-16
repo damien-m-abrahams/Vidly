@@ -98,3 +98,4 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Owin.Se
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.InitialModel.resources
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.csproj.GenerateResource.Cache
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddIsSubscribedToCustomer.resources
