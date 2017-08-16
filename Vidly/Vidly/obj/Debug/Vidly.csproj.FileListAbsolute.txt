@@ -101,3 +101,4 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.cspro
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddIsSubscribedToCustomer.resources
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddMembershipType.resources
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateMembershipTypes.resources
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.ApplyAnnotationsToCustomerName.resources
