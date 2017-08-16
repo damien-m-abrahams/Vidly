@@ -75,3 +75,7 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practic
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.xml
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.Configuration.xml
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\EntityFramework.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\EntityFramework.SqlServer.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\EntityFramework.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\EntityFramework.SqlServer.xml
