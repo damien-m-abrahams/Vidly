@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Vidly.Models;
 using Vidly.ViewModels;
 
@@ -60,11 +61,12 @@ namespace Vidly.Controllers
 		public ActionResult Index()
 		{
 			var customerViewModels = new List<CustomerViewModel>();
-			var customers = dbContext.Customers;
+			var customers = dbContext.Customers.Include(c => c.MembershipType); // Include eager loads associated membership types
 			foreach (var customer in customers) {
 				customerViewModels.Add(
 					new CustomerViewModel {
 						Name = customer.Name,
+						Discount = customer.MembershipType.DiscountRate,
 						DetailLink = new LinkViewModel {
 							ActionName = "Detail",
 							ActionProperties = new {id = customer.Id},

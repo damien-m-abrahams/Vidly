@@ -4,6 +4,8 @@
 	{
 		string Name { get; set; }
 
+		byte Discount { get; set; }
+
 		LinkViewModel DetailLink { get; set; }
 	}
 }

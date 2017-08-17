@@ -3,13 +3,13 @@
 <h2>Customers</h2>
 <table class="table table-bordered table-hover">
     <tr>
-        <th>
-            Customer
-        </th>
+        <th>Customer</th>
+        <th>Discount</th>
     </tr>
     @foreach (var customer in Model.Customers) {
         <tr>
             <td>@Html.ActionLink(customer.Name, customer.DetailLink.ActionName, customer.DetailLink.ControllerName, customer.DetailLink.ActionProperties, null)</td>
+            <td>@customer.Discount%</td>
         </tr>
     }
 </table>

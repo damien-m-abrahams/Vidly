@@ -6,6 +6,8 @@
 
 		public string Name { get; set; }
 
+		public byte Discount { get; set; }
+
 		public LinkViewModel DetailLink { get; set; }	
 	}
 }
