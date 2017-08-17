@@ -66,7 +66,7 @@ namespace Vidly.Controllers
 				customerViewModels.Add(
 					new CustomerViewModel {
 						Name = customer.Name,
-						Discount = customer.MembershipType.DiscountRate,
+						MembershipName = customer.MembershipType.Name,
 						DetailLink = new LinkViewModel {
 							ActionName = "Detail",
 							ActionProperties = new {id = customer.Id},

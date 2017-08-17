@@ -4,7 +4,7 @@
 	{
 		string Name { get; set; }
 
-		byte Discount { get; set; }
+		string MembershipName { get; set; }
 
 		LinkViewModel DetailLink { get; set; }
 	}
