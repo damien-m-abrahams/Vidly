@@ -66,3 +66,14 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\System
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\obj\Debug\VidlyTests.csprojResolveAssemblyReference.cache
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\obj\Debug\VidlyTests.dll
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\obj\Debug\VidlyTests.pdb
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Owin.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Microsoft.Owin.Security.OAuth.xml
