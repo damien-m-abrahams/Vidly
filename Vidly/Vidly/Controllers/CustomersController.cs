@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vidly.Models;
 using Vidly.ViewModels;
 
 namespace Vidly.Controllers
@@ -13,12 +14,17 @@ namespace Vidly.Controllers
 
 		private readonly ICustomersViewModel customersViewModel;
 
-		public CustomersController(INavigationViewModel navigationViewModel)
+	    private ApplicationDbContext dbContext;
+
+		public CustomersController(INavigationViewModel navigationViewModel, ApplicationDbContext dbContext)
 		{
 			if (navigationViewModel == null)
 				throw new ArgumentNullException(nameof(navigationViewModel));
+			if (dbContext == null)
+				throw new ArgumentNullException(nameof(dbContext));
 
 			this.navigationViewModel = navigationViewModel;
+			this.dbContext = dbContext;
 
 			// TODO Build view model from Customer objects
 			customersViewModel = new CustomersViewModel {
@@ -44,9 +50,30 @@ namespace Vidly.Controllers
 			};
 		}
 
-		// GET: Customers
+	    protected override void Dispose(bool disposing)
+	    {
+		    base.Dispose(disposing);
+			dbContext.Dispose();
+	    }
+
+	    // GET: Customers
 		public ActionResult Index()
 		{
+			var customerViewModels = new List<CustomerViewModel>();
+			var customers = dbContext.Customers;
+			foreach (var customer in customers) {
+				customerViewModels.Add(
+					new CustomerViewModel {
+						Name = customer.Name,
+						DetailLink = new LinkViewModel {
+							ActionName = "Detail",
+							ActionProperties = new {id = customer.Id},
+							ControllerName = "Customers"
+						}
+					});
+			}
+			customersViewModel.Customers = customerViewModels;
+
             return View(customersViewModel);
         }
 
