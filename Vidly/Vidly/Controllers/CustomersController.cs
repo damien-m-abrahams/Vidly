@@ -83,5 +83,18 @@ namespace Vidly.Controllers
 
 		    return result;
 	    }
+
+	    public ActionResult New()
+	    {
+		    var customerViewModel = new CustomerViewModel {
+			    Navigation = navigationViewModel
+		    };
+		    return View(customerViewModel);
+	    }
+
+	    public ActionResult Create()
+	    {
+		    throw new NotImplementedException();
+	    }
     }
 }

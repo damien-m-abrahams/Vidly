@@ -71,6 +71,7 @@ namespace Vidly.Controllers
 					GeneralReleaseDate = movie.ReleaseDate,
 					RentalReleaseDate = movie.DateAdded,
 					Copies = movie.NumberInStock,
+					// Details link not needed be view
 				    DetailLink = new LinkViewModel {
 					    ActionName = "Detail",
 					    ActionProperties = new {id = movie.Id},

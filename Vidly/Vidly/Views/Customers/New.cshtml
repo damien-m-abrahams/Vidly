@@ -1,0 +1,25 @@
+﻿@model Vidly.ViewModels.CustomerViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Customer</h2>
+
+@* The using wraps the call to Html.BeginForm and generates <form>...</form> tags*@
+@using (Html.BeginForm("Create", "Customers")) {
+    <div>
+        @Html.LabelFor(c => c.Name)
+        @Html.TextBoxFor(c => c.Name, new {@class = "form-control"})
+    </div>
+    <div>
+        <label for="BirthDate">Date of Birth</label>
+        @Html.TextBoxFor(c => c.BirthDate, new { @class = "form-control" })
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(c => c.IsSubscribedToNewsLetter, new { @class = "checkbox" }) Subscribed to Newsletter? 
+        </label>
+    </div>
+}
