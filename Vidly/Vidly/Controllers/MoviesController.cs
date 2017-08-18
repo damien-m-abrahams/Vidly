@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Vidly.Models;
 using Vidly.ViewModels;
 
@@ -10,26 +11,78 @@ namespace Vidly.Controllers
     {
 		private INavigationViewModel navigationViewModel;
 
-		private readonly IMoviesViewModel moviesViewModel;
+		private ApplicationDbContext dbContext;
 
-		public MoviesController(INavigationViewModel navigationViewModel)
+		public MoviesController(INavigationViewModel navigationViewModel, ApplicationDbContext dbContext)
 		{
 			if (navigationViewModel == null)
 				throw new ArgumentNullException(nameof(navigationViewModel));
+			if (dbContext == null)
+				throw new ArgumentNullException(nameof(dbContext));
 
 			this.navigationViewModel = navigationViewModel;
+			this.dbContext = dbContext;
+		}
 
-			moviesViewModel = new MoviesViewModel
-			{
-				Navigation = this.navigationViewModel
-			};
+		protected override void Dispose(bool disposing)
+		{
+			base.Dispose(disposing);
+			dbContext.Dispose();
 		}
 
 		// GET: Movies
 		public ActionResult Index()
-	    {
+		{
+			var movieViewModels = new List<MovieViewModel>();
+			var movies = dbContext.Movies.Include(m => m.GenreType);
+			foreach (var movie in movies) {
+				movieViewModels.Add(
+					new MovieViewModel {
+						Name = movie.Name,
+						Genre = movie.GenreType.Name,
+						DetailLink = new LinkViewModel {
+							ActionName = "Detail",
+							ActionProperties = new { id = movie.Id },
+							ControllerName = "Movies"
+						}
+					});
+			}
+
+			var moviesViewModel = new MoviesViewModel
+			{
+				Navigation = this.navigationViewModel,
+				Movies = movieViewModels
+			};
+
 			return View(moviesViewModel);
 		}
+
+		/*
+		public ActionResult Detail(int id)
+	    {
+		    ViewResult result;
+
+		    var customer = dbContext.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+		    if (customer != null) {
+			    var customerViewModel = new CustomerViewModel {
+				    Name = customer.Name,
+				    BirthDate = customer.BirthDate,
+				    MembershipName = customer.MembershipType.Name,
+				    DetailLink = new LinkViewModel {
+					    ActionName = "Detail",
+					    ActionProperties = new {id = customer.Id},
+					    ControllerName = "Customers"
+				    },
+				    Navigation = navigationViewModel
+			    };
+			    result = View(customerViewModel);
+			} else {
+			    throw new InvalidOperationException("Detail index is out of bounds");
+		    }
+
+		    return result;
+	    }
+		*/
 
 		#region Introduction Methods
 		// GET: Movies

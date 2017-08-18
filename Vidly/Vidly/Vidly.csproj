@@ -195,6 +195,8 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="ViewModels\IMovieViewModel.cs" />
+    <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,6 +235,10 @@
     <Compile Include="Migrations\201708180345292_AddGenreTypeAndAdditionMovieProperties.cs" />
     <Compile Include="Migrations\201708180345292_AddGenreTypeAndAdditionMovieProperties.Designer.cs">
       <DependentUpon>201708180345292_AddGenreTypeAndAdditionMovieProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180348238_PopulateGenreTypes.cs" />
+    <Compile Include="Migrations\201708180348238_PopulateGenreTypes.Designer.cs">
+      <DependentUpon>201708180348238_PopulateGenreTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -344,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708180345292_AddGenreTypeAndAdditionMovieProperties.resx">
       <DependentUpon>201708180345292_AddGenreTypeAndAdditionMovieProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180348238_PopulateGenreTypes.resx">
+      <DependentUpon>201708180348238_PopulateGenreTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
