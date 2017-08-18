@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Vidly.ViewModels
 {
@@ -8,6 +9,7 @@ namespace Vidly.ViewModels
 
 		public string Name { get; set; }
 
+		[Display(Name = "Date of Birth")]
 		public DateTime? BirthDate { get; set; }
 
 		public string MembershipName { get; set; }

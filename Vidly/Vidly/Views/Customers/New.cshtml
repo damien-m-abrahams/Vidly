@@ -14,7 +14,7 @@
         @Html.TextBoxFor(c => c.Name, new {@class = "form-control"})
     </div>
     <div>
-        <label for="BirthDate">Date of Birth</label>
+        @Html.LabelFor(c => c.BirthDate)
         @Html.TextBoxFor(c => c.BirthDate, new { @class = "form-control" })
     </div>
     <div class="checkbox">
