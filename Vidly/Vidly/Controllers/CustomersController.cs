@@ -13,8 +13,6 @@ namespace Vidly.Controllers
     {
 		private INavigationViewModel navigationViewModel;
 
-		private readonly ICustomersViewModel customersViewModel;
-
 	    private ApplicationDbContext dbContext;
 
 		public CustomersController(INavigationViewModel navigationViewModel, ApplicationDbContext dbContext)
@@ -26,29 +24,6 @@ namespace Vidly.Controllers
 
 			this.navigationViewModel = navigationViewModel;
 			this.dbContext = dbContext;
-
-			// TODO Build view model from Customer objects
-			customersViewModel = new CustomersViewModel {
-				Navigation = this.navigationViewModel,
-				Customers = new[] {
-					new CustomerViewModel {
-						Name = "John Smith",
-						DetailLink = new LinkViewModel {
-							ActionName = "Detail",
-							ActionProperties = new {id = 1},
-							ControllerName = "Customers"
-						}
-					},
-					new CustomerViewModel {
-						Name = "Mary Williams",
-						DetailLink = new LinkViewModel {
-							ActionName = "Detail",
-							ActionProperties = new {id = 2},
-							ControllerName = "Customers"
-						}
-					},
-				}
-			};
 		}
 
 	    protected override void Dispose(bool disposing)
@@ -66,6 +41,7 @@ namespace Vidly.Controllers
 				customerViewModels.Add(
 					new CustomerViewModel {
 						Name = customer.Name,
+						BirthDate = customer.BirthDate,
 						MembershipName = customer.MembershipType.Name,
 						DetailLink = new LinkViewModel {
 							ActionName = "Detail",
@@ -74,7 +50,11 @@ namespace Vidly.Controllers
 						}
 					});
 			}
-			customersViewModel.Customers = customerViewModels;
+			var customersViewModel = new CustomersViewModel
+			{
+				Navigation = navigationViewModel,
+				Customers = customerViewModels
+			};
 
             return View(customersViewModel);
         }
@@ -83,12 +63,21 @@ namespace Vidly.Controllers
 	    {
 		    ViewResult result;
 
-		    var index = id - 1;
-		    if (index >= 0 && index < customersViewModel.Customers.Count()) {
-			    var customerViewModel = customersViewModel.Customers.ElementAt(id - 1);
-			    customerViewModel.Navigation = navigationViewModel;
+		    var customer = dbContext.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+		    if (customer != null) {
+			    var customerViewModel = new CustomerViewModel {
+				    Name = customer.Name,
+				    BirthDate = customer.BirthDate,
+				    MembershipName = customer.MembershipType.Name,
+				    DetailLink = new LinkViewModel {
+					    ActionName = "Detail",
+					    ActionProperties = new {id = customer.Id},
+					    ControllerName = "Customers"
+				    },
+				    Navigation = navigationViewModel
+			    };
 			    result = View(customerViewModel);
-		    } else {
+			} else {
 			    throw new InvalidOperationException("Detail index is out of bounds");
 		    }
 
