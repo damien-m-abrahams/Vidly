@@ -1,4 +1,6 @@
-﻿namespace Vidly.ViewModels
+﻿using System;
+
+namespace Vidly.ViewModels
 {
 	public class MovieViewModel : IMovieViewModel
 	{
@@ -7,6 +9,12 @@
 		public string Name { get; set; }
 
 		public string Genre { get; set; }
+
+		public DateTime GeneralReleaseDate { get; set; }
+
+		public DateTime RentalReleaseDate { get; set; }
+
+		public byte Copies { get; set; }
 
 		public LinkViewModel DetailLink { get; set; }
 	}

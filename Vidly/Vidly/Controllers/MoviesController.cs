@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Linq;
 using Vidly.Models;
 using Vidly.ViewModels;
 
@@ -57,32 +58,34 @@ namespace Vidly.Controllers
 			return View(moviesViewModel);
 		}
 
-		/*
+		
 		public ActionResult Detail(int id)
 	    {
 		    ViewResult result;
 
-		    var customer = dbContext.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
-		    if (customer != null) {
-			    var customerViewModel = new CustomerViewModel {
-				    Name = customer.Name,
-				    BirthDate = customer.BirthDate,
-				    MembershipName = customer.MembershipType.Name,
+		    var movie = dbContext.Movies.Include(m => m.GenreType).SingleOrDefault(m => m.Id == id);
+		    if (movie != null) {
+			    var movieViewModel = new MovieViewModel {
+				    Name = movie.Name,
+				    Genre = movie.GenreType.Name,
+					GeneralReleaseDate = movie.ReleaseDate,
+					RentalReleaseDate = movie.DateAdded,
+					Copies = movie.NumberInStock,
 				    DetailLink = new LinkViewModel {
 					    ActionName = "Detail",
-					    ActionProperties = new {id = customer.Id},
-					    ControllerName = "Customers"
+					    ActionProperties = new {id = movie.Id},
+					    ControllerName = "Movies"
 				    },
 				    Navigation = navigationViewModel
 			    };
-			    result = View(customerViewModel);
+			    result = View(movieViewModel);
 			} else {
 			    throw new InvalidOperationException("Detail index is out of bounds");
 		    }
 
 		    return result;
 	    }
-		*/
+		
 
 		#region Introduction Methods
 		// GET: Movies
