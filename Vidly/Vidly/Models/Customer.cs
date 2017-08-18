@@ -17,6 +17,7 @@ namespace Vidly.Models
 
 		public MembershipType MembershipType { get; set; } // Navigation property
 
+		[Display(Name = "Membership Type")]
 		public byte MembershipTypeId { get; set; }
 	}
 }

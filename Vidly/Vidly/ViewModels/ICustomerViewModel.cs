@@ -10,6 +10,8 @@ namespace Vidly.ViewModels
 
 		string MembershipName { get; set; }
 
+		bool IsNewsLetterSubscriber { get; set; }
+
 		LinkViewModel DetailLink { get; set; }
 	}
 }

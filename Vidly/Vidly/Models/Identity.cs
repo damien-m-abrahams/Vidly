@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -23,6 +24,8 @@ namespace Vidly.Models
 		public DbSet<Customer> Customers { get; set; }
 
 		public DbSet<Movie> Movies { get; set; }
+
+		public DbSet<MembershipType> MembershipTypes { get; set; }
 
 		public ApplicationDbContext()
 			: base("DefaultConnection", throwIfV1Schema: false)

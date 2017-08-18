@@ -86,15 +86,26 @@ namespace Vidly.Controllers
 
 	    public ActionResult New()
 	    {
-		    var customerViewModel = new CustomerViewModel {
-			    Navigation = navigationViewModel
+		    var membershipTypes = dbContext.MembershipTypes.ToArray();
+		    var newCustomerViewModel = new NewCustomerViewModel {
+			    Navigation = navigationViewModel,
+				MembershipTypes = membershipTypes,
+				Customer = new Customer()
 		    };
-		    return View(customerViewModel);
+		    return View(newCustomerViewModel);
 	    }
 
-	    public ActionResult Create()
+		[HttpPost]
+	    public ActionResult Create(Customer customer)
 	    {
-		    throw new NotImplementedException();
+		    if (ModelState.IsValid) {
+			    // All form fields are declared with Customer property names so we can bind to Customer instead of INewCustomerViewModel
+			    dbContext.Customers.Add(customer);
+			    dbContext.SaveChanges();
+			    return RedirectToAction("Index", "Customers");
+		    } else {
+			    throw new InvalidOperationException("Customers is invalid");
+		    }
 	    }
     }
 }

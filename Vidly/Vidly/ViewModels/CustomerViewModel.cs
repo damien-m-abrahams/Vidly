@@ -14,7 +14,7 @@ namespace Vidly.ViewModels
 
 		public string MembershipName { get; set; }
 
-		public bool IsSubscribedToNewsLetter { get; set; }
+		public bool IsNewsLetterSubscriber { get; set; }
 
 		public LinkViewModel DetailLink { get; set; }	
 	}

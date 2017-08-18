@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.CustomerViewModel
+﻿@model Vidly.ViewModels.INewCustomerViewModel
 
 @{
     ViewBag.Title = "title";
@@ -10,16 +10,23 @@
 @* The using wraps the call to Html.BeginForm and generates <form>...</form> tags*@
 @using (Html.BeginForm("Create", "Customers")) {
     <div>
-        @Html.LabelFor(c => c.Name)
-        @Html.TextBoxFor(c => c.Name, new {@class = "form-control"})
+        @Html.LabelFor(nc => nc.Customer.Name)
+        @Html.TextBoxFor(nc => nc.Customer.Name, new {@class = "form-control"})
     </div>
     <div>
-        @Html.LabelFor(c => c.BirthDate)
-        @Html.TextBoxFor(c => c.BirthDate, new { @class = "form-control" })
+        @Html.LabelFor(nc => nc.Customer.BirthDate)
+        @Html.TextBoxFor(nc => nc.Customer.BirthDate, new { @class = "form-control" })
     </div>
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(c => c.IsSubscribedToNewsLetter, new { @class = "checkbox" }) Subscribed to Newsletter? 
+            @Html.CheckBoxFor(c => c.Customer.IsSubscribedToNewsletteer, new { @class = "checkbox" }) Subscribed to Newsletter? 
         </label>
+    </div>
+    <div>
+        @Html.LabelFor(nc => nc.Customer.MembershipTypeId)
+        @Html.DropDownListFor(nc => nc.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Save</button>
     </div>
 }
