@@ -4,7 +4,7 @@
 <ul>
     <li>Membership Type: @Model.MembershipName</li>
     @if (Model.BirthDate.HasValue) {
-        <li>Birthday: @Model.BirthDate.Value.Date.ToString("D")</li>
+        <li>Birthday: @Model.BirthDate.Value.Date.ToString("d MMM yyyy")</li>
     }
 
 </ul>

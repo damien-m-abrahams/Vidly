@@ -3,7 +3,7 @@ using Vidly.Models;
 
 namespace Vidly.ViewModels
 {
-	public class NewCustomerViewModel : INewCustomerViewModel
+	public class CustomerFormFormViewModel : ICustomerFormViewModel
 	{
 		public INavigationViewModel Navigation { get; set; }
 

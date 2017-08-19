@@ -44,7 +44,7 @@ namespace Vidly.Controllers
 						BirthDate = customer.BirthDate,
 						MembershipName = customer.MembershipType.Name,
 						DetailLink = new LinkViewModel {
-							ActionName = "Detail",
+							ActionName = "Edit",
 							ActionProperties = new {id = customer.Id},
 							ControllerName = "Customers"
 						}
@@ -78,8 +78,8 @@ namespace Vidly.Controllers
 			    };
 			    result = View(customerViewModel);
 			} else {
-			    throw new InvalidOperationException("Detail index is out of bounds");
-		    }
+				return HttpNotFound($"Could not find Customer {id}");
+			}
 
 		    return result;
 	    }
@@ -87,25 +87,57 @@ namespace Vidly.Controllers
 	    public ActionResult New()
 	    {
 		    var membershipTypes = dbContext.MembershipTypes.ToArray();
-		    var newCustomerViewModel = new NewCustomerViewModel {
+		    var customerFormFormViewModel = new CustomerFormFormViewModel {
 			    Navigation = navigationViewModel,
 				MembershipTypes = membershipTypes,
 				Customer = new Customer()
 		    };
-		    return View(newCustomerViewModel);
+		    return View("CustomerForm", customerFormFormViewModel);
 	    }
 
 		[HttpPost]
-	    public ActionResult Create(Customer customer)
+	    public ActionResult Save(Customer customer)
 	    {
-		    if (ModelState.IsValid) {
-			    // All form fields are declared with Customer property names so we can bind to Customer instead of INewCustomerViewModel
-			    dbContext.Customers.Add(customer);
+			// All form fields are declared with Customer property names so we can bind to Customer instead of INewCustomerViewModel
+			if (ModelState.IsValid) {
+				if (customer.Id == 0) {
+					dbContext.Customers.Add(customer);
+				} else {
+					var existingCustomer = dbContext.Customers.Single(c => c.Id == customer.Id);
+
+					// Use Automapper e.g. Mapper.Map(customer, existingCustomer)
+					existingCustomer.Name = customer.Name;
+					existingCustomer.BirthDate = customer.BirthDate;
+					existingCustomer.MembershipTypeId = customer.MembershipTypeId;
+					existingCustomer.IsSubscribedToNewsletteer = customer.IsSubscribedToNewsletteer;
+				}
+
 			    dbContext.SaveChanges();
 			    return RedirectToAction("Index", "Customers");
 		    } else {
 			    throw new InvalidOperationException("Customers is invalid");
 		    }
 	    }
-    }
+
+		public ActionResult Edit(int id)
+		{
+			ViewResult result;
+
+			var membershipTypes = dbContext.MembershipTypes.ToArray();
+			var customer = dbContext.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+			if (customer != null) {
+				var customerViewModel = new CustomerFormFormViewModel
+				{
+					Customer = customer,
+					MembershipTypes = membershipTypes,
+					Navigation = navigationViewModel
+				};
+				result = View("CustomerForm", customerViewModel);
+			} else {
+				return HttpNotFound($"Could not find Customer {id}");
+			}
+
+			return result;
+		}
+	}
 }
