@@ -52,6 +52,12 @@ namespace Vidly.Controllers
 			var moviesViewModel = new MoviesViewModel
 			{
 				Navigation = this.navigationViewModel,
+				NewMovie = new LinkViewModel {
+					Display = "New Movie",
+					ActionName = "Edit",
+					ActionProperties = new { id = 0 },
+					ControllerName = "Movies",
+				},
 				Movies = movieViewModels
 			};
 
@@ -86,7 +92,12 @@ namespace Vidly.Controllers
 
 		    return result;
 	    }
-		
+
+		public ActionResult Edit(int id)
+		{
+			return Content("id=" + id);
+		}
+
 
 		#region Introduction Methods
 		// GET: Movies
@@ -122,11 +133,6 @@ namespace Vidly.Controllers
 
 			return View(viewModel);
 		}
-
-	    public ActionResult Edit(int id)
-	    {
-		    return Content("id=" + id);
-	    }
 
 		/*
 		public ActionResult Index(int? pageIndex, string sortBy)

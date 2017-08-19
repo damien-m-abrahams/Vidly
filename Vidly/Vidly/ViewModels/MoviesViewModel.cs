@@ -6,6 +6,8 @@ namespace Vidly.ViewModels
 	{
 		public INavigationViewModel Navigation { get; set; }
 
+		public LinkViewModel NewMovie { get; set; }
+
 		public IEnumerable<IMovieViewModel> Movies { get; set; }
 	}
 }
