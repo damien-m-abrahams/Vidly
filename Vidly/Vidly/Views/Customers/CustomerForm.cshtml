@@ -10,16 +10,16 @@
 @* The using wraps the call to Html.BeginForm and generates <form>...</form> tags*@
 @using (Html.BeginForm("Save", "Customers")) {
     <div>
-        @Html.LabelFor(nc => nc.Customer.Name)
-        @Html.TextBoxFor(nc => nc.Customer.Name, new {@class = "form-control"})
+        @Html.LabelFor(c => c.Customer.Name)
+        @Html.TextBoxFor(c => c.Customer.Name, new {@class = "form-control"})
     </div>
     <div>
-        @Html.LabelFor(nc => nc.Customer.BirthDate)
-        @Html.TextBoxFor(nc => nc.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.LabelFor(c => c.Customer.BirthDate)
+        @Html.TextBoxFor(c => c.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
     </div>
     <div>
-        @Html.LabelFor(nc => nc.Customer.MembershipTypeId)
-        @Html.DropDownListFor(nc => nc.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.LabelFor(c => c.Customer.MembershipTypeId)
+        @Html.DropDownListFor(c => c.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
     </div>
     <div class="checkbox">
         <label>
