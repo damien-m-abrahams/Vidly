@@ -115,7 +115,7 @@ namespace Vidly.Controllers
 			    dbContext.SaveChanges();
 			    return RedirectToAction("Index", "Customers");
 		    } else {
-			    throw new InvalidOperationException("Customers is invalid");
+			    throw new InvalidOperationException("Customer state is invalid");
 		    }
 	    }
 
