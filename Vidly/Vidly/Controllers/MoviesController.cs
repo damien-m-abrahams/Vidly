@@ -104,6 +104,7 @@ namespace Vidly.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult Save(Movie movie)
 		{
 			ActionResult result;

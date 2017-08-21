@@ -2,35 +2,40 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var title = "Edit Movie";
-    if (Model.Movie == null) {
-        title = "New Movie";
-    }
+    var title = (Model.Movie == null) ? "New Movie" : "Edit Movie";
 }
 
 <h2>@title</h2>
-
+@Html.ValidationSummary(true, "Please fix the following errors!")
 @using (Html.BeginForm("Save", "Movies")) {
     <div>
         @Html.LabelFor(m => m.Movie.Name)
         @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.Name)
     </div>
     <div>
         @Html.LabelFor(m => m.Movie.ReleaseDate)
         @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
     </div>
     <div>
         @Html.LabelFor(m => m.Movie.GenreTypeId)
         @Html.DropDownListFor(m => m.Movie.GenreTypeId, new SelectList(Model.GenreTypes, "Id", "Name"), "Select Genre Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.GenreTypeId)
     </div>
     <div>
         @Html.LabelFor(m => m.Movie.NumberInStock)
         @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
     </div>
     <div>
         @if (Model.Movie != null) {
             @Html.HiddenFor(c => c.Movie.Id)
         }
+        @Html.AntiForgeryToken()
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
+}
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
