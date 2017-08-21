@@ -109,3 +109,11 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migra
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreTypes.resources
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.ApplyMovieAnnotations.resources
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.ModifyMovieDateAnnotations.resources
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\System.Net.Http.Formatting.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\System.Web.Http.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\System.Web.Http.WebHost.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\System.Net.Http.Formatting.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\System.Web.Http.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\AutoMapper.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\bin\AutoMapper.xml

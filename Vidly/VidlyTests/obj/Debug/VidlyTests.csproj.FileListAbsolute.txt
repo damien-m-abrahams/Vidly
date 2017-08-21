@@ -77,3 +77,13 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\roslyn
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\roslyn\vbc.rsp
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\roslyn\VBCSCompiler.exe
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\System.Web.Http.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\System.Web.Http.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\AutoMapper.dll
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\VidlyTests\bin\Debug\AutoMapper.xml

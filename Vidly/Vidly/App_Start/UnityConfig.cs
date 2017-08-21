@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc5;
+using Vidly.Models;
 using Vidly.ViewModels;
 
 namespace Vidly
@@ -51,8 +52,8 @@ namespace Vidly
 
 			#endregion
 
-	        container.RegisterInstance(typeof(INavigationViewModel), navigationViewModel, new ContainerControlledLifetimeManager());
-            
+			container.RegisterInstance(typeof(INavigationViewModel), navigationViewModel, new ContainerControlledLifetimeManager());
+	        
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
