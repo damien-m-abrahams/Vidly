@@ -207,10 +207,12 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dto\CustomerDto.cs" />
+    <Compile Include="Dto\MovieDto.cs" />
     <Compile Include="Migrations\201708200246194_ApplyMovieAnnotations.cs" />
     <Compile Include="Migrations\201708200246194_ApplyMovieAnnotations.Designer.cs">
       <DependentUpon>201708200246194_ApplyMovieAnnotations.cs</DependentUpon>
