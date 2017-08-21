@@ -4,6 +4,8 @@ namespace Vidly.ViewModels
 {
 	public interface ICustomerViewModel : IViewModel
 	{
+		int Id { get; set; }
+
 		string Name { get; set; }
 
 		DateTime? BirthDate { get; set; }

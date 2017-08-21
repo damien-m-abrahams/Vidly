@@ -7,6 +7,8 @@ namespace Vidly.ViewModels
 	{
 		public INavigationViewModel Navigation { get; set; }
 
+		public int Id { get; set; }
+
 		public string Name { get; set; }
 
 		[Display(Name = "Date of Birth")]

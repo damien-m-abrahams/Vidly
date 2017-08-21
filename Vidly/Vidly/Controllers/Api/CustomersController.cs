@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -21,46 +22,54 @@ namespace Vidly.Controllers.Api
 		    dbContext = new ApplicationDbContext();
 	    }
 
-	    // GET /api/customers/all
+	    // GET /api/customers
 	    [HttpGet]
-	    public async Task<IEnumerable<CustomerDto>> All()
+	    public async Task<IHttpActionResult> Customers()
 	    {
 		    var customerDtos = await dbContext.Customers.ProjectTo<CustomerDto>().ToListAsync();
-		    return customerDtos;
+		    return Ok(customerDtos);
 	    }
 
-	    // GET /api/customeer/single/{id}
+	    // GET /api/customers/{id}
 		[HttpGet]
-		public async Task<CustomerDto> Single(int id)
+		public async Task<IHttpActionResult> Customer(int id)
 		{
+			IHttpActionResult result;
+
 			var customer = await dbContext.Customers.SingleOrDefaultAsync(c => c.Id == id);
 
-			if (customer == null) {
-				throw new HttpResponseException(HttpStatusCode.NotFound);
+			if (customer != null) {
+				var customerDto = Mapper.Map<Customer, CustomerDto>(customer);
+				result = Ok(customerDto);
+			} else {
+				result = NotFound();
 			}
 
-			return Mapper.Map<Customer, CustomerDto>(customer);
+			return result;
 		}
 
-		// POST /api/customers/create
+		// POST /api/customers
 		[HttpPost]
-	    public async Task<CustomerDto> Create(CustomerDto customerDto)
-	    {
+	    public async Task<IHttpActionResult> CreateCustomer(CustomerDto customerDto)
+		{
+			IHttpActionResult result;
+
 		    if (ModelState.IsValid) {
 			    var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
 			    dbContext.Customers.Add(customer);
 			    await dbContext.SaveChangesAsync();
 				customerDto.Id = customer.Id;
+			    result = Created(new Uri(Request.RequestUri + "/" + customerDto.Id), customerDto);
 		    } else {
-			    throw new HttpResponseException(HttpStatusCode.BadRequest);
+			    result = BadRequest("Customer DTO is invalid");
 		    }
 
-			return customerDto;
+			return result;
 	    }
 
-		// POST /api/customers/update/{id}
+		// PUT /api/customers/{id}
 		[HttpPut]
-		public async Task Update(int id, CustomerDto customerDto)
+		public async Task UpdateCustomer(int id, CustomerDto customerDto)
 		{
 			if (ModelState.IsValid) {
 				var customerInDb = await dbContext.Customers.SingleOrDefaultAsync(c => c.Id == id);
@@ -75,9 +84,9 @@ namespace Vidly.Controllers.Api
 			}
 		}
 
-		// DELETE /api/customers/remove/{id}
+		// DELETE /api/customers/{id}
 		[HttpDelete]
-	    public async Task Remove(int id)
+	    public async Task RemoveCustomer(int id)
 	    {
 			var customerInDb = await dbContext.Customers.SingleOrDefaultAsync(c => c.Id == id);
 			if (customerInDb != null) {

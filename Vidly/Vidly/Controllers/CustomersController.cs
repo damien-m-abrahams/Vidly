@@ -40,6 +40,7 @@ namespace Vidly.Controllers
 			foreach (var customer in customers) {
 				customerViewModels.Add(
 					new CustomerViewModel {
+						Id = customer.Id,
 						Name = customer.Name,
 						BirthDate = customer.BirthDate,
 						MembershipName = customer.MembershipType.Name,
