@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vidly.Models
 {
@@ -11,9 +12,12 @@ namespace Vidly.Models
 		[StringLength(255)]
 		public string Name { get; set; }
 
+		[Column(TypeName = "datetime2")]
 		[Display(Name = "Release Date")]
 		public DateTime ReleaseDate { get; set; }
 
+		[Column(TypeName = "datetime2")]
+		[Display(Name = "Rental Release Data")]
 		public DateTime DateAdded { get; set; }
 
 		[Display(Name = "Number in Stock")]
