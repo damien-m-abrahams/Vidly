@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201708200246194_ApplyMovieAnnotations.Designer.cs">
       <DependentUpon>201708200246194_ApplyMovieAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708210130033_ModifyMovieDateAnnotations.cs" />
+    <Compile Include="Migrations\201708210130033_ModifyMovieDateAnnotations.Designer.cs">
+      <DependentUpon>201708210130033_ModifyMovieDateAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\IMovieFormViewModel.cs" />
     <Compile Include="ViewModels\IMovieViewModel.cs" />
     <Compile Include="ViewModels\ICustomerFormViewModel.cs" />
@@ -267,7 +271,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LinkViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewModel.cs" />
-    <Compile Include="ViewModels\CustomerFormFormViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -367,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708200246194_ApplyMovieAnnotations.resx">
       <DependentUpon>201708200246194_ApplyMovieAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708210130033_ModifyMovieDateAnnotations.resx">
+      <DependentUpon>201708210130033_ModifyMovieDateAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

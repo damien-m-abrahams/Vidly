@@ -108,3 +108,4 @@ C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migra
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddGenreTypeAndAdditionMovieProperties.resources
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreTypes.resources
 C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.ApplyMovieAnnotations.resources
+C:\Users\damien\Documents\GitHub\Sandbox\vidly\Vidly\Vidly\obj\Debug\Vidly.Migrations.ModifyMovieDateAnnotations.resources

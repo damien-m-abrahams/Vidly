@@ -87,7 +87,7 @@ namespace Vidly.Controllers
 	    public ActionResult New()
 	    {
 		    var membershipTypes = dbContext.MembershipTypes.ToArray();
-		    var customerFormFormViewModel = new CustomerFormFormViewModel {
+		    var customerFormFormViewModel = new CustomerFormViewModel {
 			    Navigation = navigationViewModel,
 				MembershipTypes = membershipTypes,
 				Customer = new Customer()
@@ -97,7 +97,9 @@ namespace Vidly.Controllers
 
 		[HttpPost]
 	    public ActionResult Save(Customer customer)
-	    {
+		{
+			ActionResult result;
+
 			// All form fields are declared with Customer property names so we can bind to Customer instead of INewCustomerViewModel
 			if (ModelState.IsValid) {
 				if (customer.Id == 0) {
@@ -113,11 +115,20 @@ namespace Vidly.Controllers
 				}
 
 			    dbContext.SaveChanges();
-			    return RedirectToAction("Index", "Customers");
+			    result = RedirectToAction("Index", "Customers");
 		    } else {
-			    throw new InvalidOperationException("Customer state is invalid");
-		    }
-	    }
+				var membershipTypes = dbContext.MembershipTypes.ToArray();
+				var customerFormFormViewModel = new CustomerFormViewModel
+				{
+					Navigation = navigationViewModel,
+					MembershipTypes = membershipTypes,
+					Customer = customer
+				};
+				return View("CustomerForm", customerFormFormViewModel);
+			}
+
+			return result;
+		}
 
 		public ActionResult Edit(int id)
 		{
@@ -126,13 +137,13 @@ namespace Vidly.Controllers
 			var membershipTypes = dbContext.MembershipTypes.ToArray();
 			var customer = dbContext.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 			if (customer != null) {
-				var customerViewModel = new CustomerFormFormViewModel
+				var customerFormViewModel = new CustomerFormViewModel
 				{
 					Customer = customer,
 					MembershipTypes = membershipTypes,
 					Navigation = navigationViewModel
 				};
-				result = View("CustomerForm", customerViewModel);
+				result = View("CustomerForm", customerFormViewModel);
 			} else {
 				return HttpNotFound($"Could not find Customer {id}");
 			}

@@ -28,7 +28,9 @@
         @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
     </div>
     <div>
-        @Html.HiddenFor(c => c.Movie.Id)
+        @if (Model.Movie != null) {
+            @Html.HiddenFor(c => c.Movie.Id)
+        }
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
 }

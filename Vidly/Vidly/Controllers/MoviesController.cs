@@ -42,7 +42,7 @@ namespace Vidly.Controllers
 						Name = movie.Name,
 						Genre = movie.GenreType.Name,
 						DetailLink = new LinkViewModel {
-							ActionName = "Detail",
+							ActionName = "Edit",
 							ActionProperties = new { id = movie.Id },
 							ControllerName = "Movies"
 						}
@@ -106,6 +106,8 @@ namespace Vidly.Controllers
 		[HttpPost]
 		public ActionResult Save(Movie movie)
 		{
+			ActionResult result;
+
 			// All form fields are declared with Customer property names so we can bind to Customer instead of INewCustomerViewModel
 			if (ModelState.IsValid) {
 				if (movie.Id == 0) {
@@ -120,15 +122,41 @@ namespace Vidly.Controllers
 				}
 
 				dbContext.SaveChanges();
-				return RedirectToAction("Index", "Movies");
+				result = RedirectToAction("Index", "Movies");
 			} else {
-				throw new InvalidOperationException("Movie state is invalid");
+				var membershipTypes = dbContext.GenreTypes.ToArray();
+				var movieFormViewModel = new MovieFormViewModel
+				{
+					Movie = movie,
+					GenreTypes = membershipTypes,
+					Navigation = navigationViewModel
+				};
+
+				result = View("MovieForm", movieFormViewModel);
 			}
+
+			return result;
 		}
 
 		public ActionResult Edit(int id)
 		{
-			return Content("id=" + id);
+			ActionResult result;
+
+			var membershipTypes = dbContext.GenreTypes.ToArray();
+			var movie = dbContext.Movies.Include(m => m.GenreType).SingleOrDefault(c => c.Id == id);
+			if (movie != null) {
+				var movieFormViewModel = new MovieFormViewModel
+				{
+					Movie = movie,
+					GenreTypes = membershipTypes,
+					Navigation = navigationViewModel
+				};
+				result = View("MovieForm", movieFormViewModel);
+			} else {
+				result = HttpNotFound($"Could not find Movie {id}");
+			}
+
+			return result;
 		}
 
 
