@@ -31,3 +31,7 @@ textarea {
     border-style: dashed;
     border-color: red;
 }
+
+.validation-summary-errors {
+    color: red;
+}

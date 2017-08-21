@@ -15,5 +15,10 @@ namespace Vidly.Models
 		public byte DurationInMonths { get; set; }
 
 		public byte DiscountRate { get; set; }
+
+		// Alternatively a enum can be used (but the enum value needs to be explicitly cast to byte)
+		public static byte Unknown = 0;
+
+		public static byte PayAsYouGo = 1;
 	}
 }

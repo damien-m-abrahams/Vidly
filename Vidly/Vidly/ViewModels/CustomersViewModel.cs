@@ -6,6 +6,8 @@ namespace Vidly.ViewModels
 	{
 		public INavigationViewModel Navigation { get; set; }
 
+		public LinkViewModel NewCustomer { get; set; }
+
 		public IEnumerable<ICustomerViewModel> Customers { get; set; }
 	}
 }

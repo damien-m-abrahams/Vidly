@@ -203,6 +203,7 @@
     <Compile Include="Migrations\201708210130033_ModifyMovieDateAnnotations.Designer.cs">
       <DependentUpon>201708210130033_ModifyMovieDateAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MemberAgeValidation.cs" />
     <Compile Include="ViewModels\IMovieFormViewModel.cs" />
     <Compile Include="ViewModels\IMovieViewModel.cs" />
     <Compile Include="ViewModels\ICustomerFormViewModel.cs" />

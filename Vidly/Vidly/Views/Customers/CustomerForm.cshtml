@@ -6,7 +6,7 @@
 }
 
 <h2>Edit Customer</h2>
-
+@Html.ValidationSummary(true, "Please fix the following errors!")
 @* The using wraps the call to Html.BeginForm and generates <form>...</form> tags*@
 @using (Html.BeginForm("Save", "Customers")) {
     <div>
@@ -15,13 +15,14 @@
         @Html.ValidationMessageFor(c => c.Customer.Name)
     </div>
     <div>
-        @Html.LabelFor(c => c.Customer.BirthDate)
-        @Html.TextBoxFor(c => c.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
-    </div>
-    <div>
         @Html.LabelFor(c => c.Customer.MembershipTypeId)
         @Html.DropDownListFor(c => c.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Customer.MembershipType)
+        @Html.ValidationMessageFor(c => c.Customer.MembershipTypeId)
+    </div>
+    <div>
+        @Html.LabelFor(c => c.Customer.BirthDate)
+        @Html.TextBoxFor(c => c.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.BirthDate)
     </div>
     <div class="checkbox">
         <label>
@@ -29,7 +30,14 @@
         </label>
     </div>
     <div>
-        @Html.HiddenFor(c => c.Customer.Id)
+        @if (Model.Customer != null) {
+            @Html.HiddenFor(c => c.Customer.Id)
+        }
+        @Html.AntiForgeryToken();
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

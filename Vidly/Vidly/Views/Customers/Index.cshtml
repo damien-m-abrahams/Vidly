@@ -1,6 +1,9 @@
 ﻿@model Vidly.ViewModels.ICustomersViewModel
 
 <h2>Customers</h2>
+<div>
+    @Html.ActionLink(Model.NewCustomer.Display, Model.NewCustomer.ActionName, Model.NewCustomer.ControllerName, Model.NewCustomer.ActionProperties, new { @class = "btn btn-primary" })
+</div>
 <table class="table table-bordered table-hover">
     <tr>
         <th>Customer</th>

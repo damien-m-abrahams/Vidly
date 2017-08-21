@@ -53,6 +53,12 @@ namespace Vidly.Controllers
 			var customersViewModel = new CustomersViewModel
 			{
 				Navigation = navigationViewModel,
+				NewCustomer = new LinkViewModel
+				{
+					Display = "New Customer",
+					ActionName = "New",
+					ControllerName = "Customers",
+				},
 				Customers = customerViewModels
 			};
 
@@ -96,6 +102,7 @@ namespace Vidly.Controllers
 	    }
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 	    public ActionResult Save(Customer customer)
 		{
 			ActionResult result;
